@@ -23,5 +23,13 @@ class ProductSelectedListView(generics.RetrieveAPIView):
     lookup_field = "id"
     lookup_url_kwarg = "id"
 
+#CreatAPIView
+# POST method
+class ProductCreateAPIView(generics.CreateAPIView):
+    serializer_class = ProductListSerializer
 
-
+class ProductUpdateAPIView(generics.UpdateAPIView):
+    serializer_class = ProductListSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'id'
+    queryset = Product.objects.all()
