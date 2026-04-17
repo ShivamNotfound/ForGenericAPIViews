@@ -30,6 +30,15 @@ class ProductCreateAPIView(generics.CreateAPIView):
 
 class ProductUpdateAPIView(generics.UpdateAPIView):
     serializer_class = ProductListSerializer
-    lookup_field = 'id'
+    lookup_field = 'id' 
     lookup_url_kwarg = 'id'
     queryset = Product.objects.all()
+
+#DestroyAPIView
+#POST method.
+class ProductDestroyAPIView(generics.DestroyAPIView):
+    serializer_class = ProductListSerializer
+    lookup_field = "id"
+    lookup_url_kwarg = "id"
+    queryset = Product.objects.all()
+
