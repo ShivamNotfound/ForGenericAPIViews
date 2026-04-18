@@ -42,3 +42,19 @@ class ProductDestroyAPIView(generics.DestroyAPIView):
     lookup_url_kwarg = "id"
     queryset = Product.objects.all()
 
+
+#ListCreateAPIView
+#Gets you the list of records when hit with GET request, and creates an instance when hit with the POST request.
+class ProductListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductListSerializer
+
+#RetrieveUpdateDestroyAPIView
+#GET - returns a single instance.
+#POST - Deletes the instance from the db.
+#PUT/PATCH - Updates the instance.
+class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductListSerializer
+    lookup_field = "id"
+    lookup_url_kwarg = "id"
